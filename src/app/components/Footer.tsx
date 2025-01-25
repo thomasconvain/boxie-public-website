@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -42,6 +42,12 @@ export default function Footer() {
       <div className="mt-8 text-center text-sm text-gray-400 font-serif">
         &copy; {new Date().getFullYear()} boxie.ai. Todos los derechos
         reservados.
+        <button
+          onClick={() => (window.location.href = '/privacy-policy')}
+          className="px-6 py-2 hover:underline"
+        >
+          Políticas de Privacidad
+        </button>
       </div>
     </footer>
   );
