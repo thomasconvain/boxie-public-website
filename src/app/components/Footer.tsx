@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         {/* Logo y Dirección */}
         <div className="flex flex-col items-center md:items-start">
@@ -23,7 +23,7 @@ export default function Footer() {
             href="https://www.instagram.com/boxie.ai/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition"
+            className="text-white hover:text-white transition"
           >
             <FaInstagram size={24} />
           </a>
@@ -31,7 +31,7 @@ export default function Footer() {
             href="https://www.linkedin.com/company/boxie-ai/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition"
+            className="text-white hover:text-white transition"
           >
             <FaLinkedin size={24} />
           </a>
