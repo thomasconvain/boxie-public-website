@@ -1,132 +1,62 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
-
-const tabs = [
+const features = [
   {
-    name: 'Configura los parámetros',
-    shortName: 'Configura',
-    image: 'step1.webp',
-    content: `Configura los parámetros globales  para gestionar las interacciones entre proyectos de manera coherente y personaliza opciones propias de cada proyecto.`,
+    name: 'Conexión y análisis en tiempo real',
+    description:
+      'La herramienta conecta a los ejecutivos inmobiliarios con políticas comerciales de múltiples instituciones financieras, analizando grandes volúmenes de datos en segundos para ofrecer opciones actualizadas, personalizadas y alineadas con las necesidades del cliente.',
   },
   {
-    name: 'Atiende a tus clientes',
-    shortName: 'Atiende',
-    image: 'step2.webp',
-    content: `El ejecutivo inmobiliario ingresa detalles clave en el chat de WhatsApp, como tipo de propiedad, monto del pie inicial, y plazo de financiamiento deseado. Esto inicia el análisis personalizado.`,
+    name: 'Personalización y gestión de propuestas',
+    description:
+      'Permite ingresar parámetros específicos como tipo de propiedad, precio y financiamiento requerido. Basándose en esta información, identifica descuentos, incentivos y condiciones exclusivas, gestionando propuestas claras y adaptadas para cada cliente.',
   },
   {
-    name: 'Recibe opciones en tiempo real',
-    shortName: 'Recibe opciones',
-    image: 'step3.webp',
-    content:
-      'La herramienta analiza las políticas comerciales y genera opciones de financiamiento claras, detallando descuentos, tasas, incentivos y cuotas mensuales en segundos.',
+    name: 'Interfaz intuitiva mediante WhatsApp',
+    description:
+      'Opera a través de un chat WhatsApp API, ofreciendo una experiencia fluida. Los ejecutivos pueden ingresar parámetros, recibir opciones en segundos y compartirlas directamente con los clientes, simplificando la comunicación.',
   },
   {
-    name: 'Comparte y gestiona propuestas',
-    shortName: 'Comparte',
-    image: 'step4.webp',
-    content:
-      'El ejecutivo puede enviar las opciones al cliente directamente desde el chat, realizar ajustes según las necesidades y llevar un seguimiento de las interacciones en un historial organizado.',
+    name: 'Seguimiento y reportes organizados',
+    description:
+      'Consulta en tiempo real la disponibilidad de unidades de los proyectos inmobiliarios. Obtén detalles como precios de lista, descuentos aplicables y beneficios financieros, ajustados automáticamente según las políticas comerciales.',
   },
 ];
 
-export default function ProductSpecifications() {
-  const [activeTab, setActiveTab] = useState(0);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const totalDuration = 5000; // Tiempo total (5 segundos)
-    const updateInterval = 10; // Intervalo de actualización (10ms)
-    const step = 100 / (totalDuration / updateInterval); // Incremento por intervalo
-
-    let currentProgress = 0;
-
-    const interval = setInterval(() => {
-      currentProgress += step;
-
-      if (currentProgress >= 100) {
-        currentProgress = 0;
-        setActiveTab((prevTab) => (prevTab + 1) % tabs.length); // Avanza al siguiente tab
-      }
-
-      setProgress(currentProgress); // Actualiza el progreso visual
-    }, updateInterval);
-
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar
-  }, []);
-
+export default function Example() {
   return (
-    <section className="font-serif pb-12">
-      {/* General Text */}
-      <div className="text-center -mt-5 py-20 mb-8 rounded-b-3xl bg-gradient-to-b from-slate-900 to-black">
-        <div className="container mx-auto px-4 py-8">
-          <h2 className="text-2xl lg:text-4xl font-light text-white font-sans">
-            Conecta oportunidades inmobiliarias
-            <br />
-            con <strong>financiamiento a medida</strong>
-          </h2>
-          <p className="mt-4 text-gray-100">
-            Somos la herramienta definitiva para ejecutivos de inmobiliarias que
-            facilita propuestas financieras rápidas y personalizadas.
-          </p>
-        </div>
-      </div>
+    <div className="relative bg-gradient-to-b from-pink-50 to-transparent">
+      <div
+        style={{
+          backgroundImage: "url('/nnnoise.svg')", // Cambia esto por la ruta de tu textura
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="container -mt-4 relative z-10 mx-auto items-center gap-x-8 gap-y-16 px-4 py-24">
+          <div>
+            <h2 className="text-3xl font-light tracking-tight text-gray-900 sm:text-4xl text-center">
+              <span className="font-semibold">
+                Soluciones rápidas y precisas
+              </span>
+              <br />
+              que se adaptan a las necesidades de cada cliente
+            </h2>
 
-      {/* Tabs */}
-      <div className="bg-white">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex justify-center space-x-4 border-b border-gray-200">
-            {tabs.map((tab, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setActiveTab(index);
-                  setProgress(0); // Reinicia la barra de progreso
-                }}
-                className={`text-md pb-2 ${
-                  activeTab === index
-                    ? 'text-black font-semibold'
-                    : 'text-gray-500 hover:text-black'
-                }`}
-              >
-                {tab.shortName}
-              </button>
-            ))}
-          </div>
-
-          {/* Barra de progreso */}
-          <div className="relative h-1 bg-gray-200 rounded-full -mt-1 overflow-hidden">
-            <div
-              className="absolute top-0 left-0 h-1 bg-pink-600 rounded-full transition-all duration-[50ms]"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-
-          {/* Tab Content */}
-          <div className="mt-8 flex flex-col md:flex-row items-center max-w-[900px] mx-auto space-y-8 md:space-y-0 md:space-x-8">
-            {/* Left Section: Text */}
-            <div className="flex-1">
-              <h3 className="text-xl font-semibold text-gray-800">
-                {tabs[activeTab].name}
-              </h3>
-              <p
-                className="mt-4 text-gray-600"
-                dangerouslySetInnerHTML={{ __html: tabs[activeTab].content }}
-              ></p>
-            </div>
-
-            {/* Right Section: Image */}
-            <div className="flex-1">
-              <img
-                src={tabs[activeTab].image}
-                alt={tabs[activeTab].name}
-                className="w-[300px] rounded-2xl shadow-md mx-auto"
-              />
-            </div>
+            <dl className="mt-12 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+              {features.map((feature) => (
+                <div
+                  key={feature.name}
+                  className="bg-white text-gray-900 hover:bg-black hover:text-white transition p-6 rounded-xl cursor-pointer border border-gray-300"
+                >
+                  <dt className="font-semibold">{feature.name}</dt>
+                  <dd className="mt-2 text-sm font-serif">
+                    {feature.description}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

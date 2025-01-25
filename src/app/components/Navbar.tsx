@@ -1,40 +1,79 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Limpia el evento al desmontar el componente
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-white shadow-md">
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      }`}
+    >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold text-pink-700">
+        <div className="text-2xl font-bold">
           <a href="/">
-            {' '}
-            <Image src="/boxie-logo.png" alt="Boxie" width={130} height={50} />
+            <Image
+              src={isScrolled ? '/boxie-logo.png' : '/boxie-logo-white.png'}
+              alt="Boxie"
+              width={130}
+              height={50}
+            />
           </a>
         </div>
 
         {/* Menú en pantallas grandes */}
         <ul className="hidden md:flex space-x-6 text-gray-600">
           <li>
-            <a href="#about" className="hover:text-pink-700">
+            <a
+              href="#about"
+              className={`hover:text-gray-800 ${
+                isScrolled ? 'text-gray-700' : 'text-gray-200'
+              }`}
+            >
               Sobre nosotros
             </a>
           </li>
           <li>
-            <a href="#services" className="hover:text-pink-700">
+            <a
+              href="#services"
+              className={`hover:text-gray-800 ${
+                isScrolled ? 'text-gray-700' : 'text-gray-200'
+              }`}
+            >
               Servicios
             </a>
           </li>
           <li>
-            <a href="#contact" className="hover:text-pink-700">
+            <a
+              href="#contact"
+              className={`hover:text-gray-800 ${
+                isScrolled ? 'text-gray-700' : 'text-gray-200'
+              }`}
+            >
               Contacto
             </a>
           </li>
@@ -42,7 +81,9 @@ export default function Navbar() {
 
         {/* Botón de menú móvil */}
         <button
-          className="md:hidden block text-gray-600 focus:outline-none"
+          className={`md:hidden block text-gray-600 focus:outline-none z-50 ${
+            isScrolled && !isMenuOpen ? 'text-gray-700' : 'text-gray-200'
+          }`}
           onClick={toggleMenu}
         >
           <svg
@@ -62,28 +103,42 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menú desplegable para móvil */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-md">
-          <ul className="space-y-4 text-gray-600 px-4 py-4">
-            <li>
-              <a href="#about" className="block hover:text-pink-700">
-                Sobre nosotros
-              </a>
-            </li>
-            <li>
-              <a href="#services" className="block hover:text-pink-700">
-                Servicios
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="block hover:text-pink-700">
-                Contacto
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
+      {/* Menú móvil en pantalla completa */}
+      <div
+        className={`fixed inset-0 bg-black text-white flex flex-col items-center justify-center transform transition-transform duration-300 ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <ul className="space-y-8 text-center text-xl">
+          <li>
+            <a
+              href="#about"
+              onClick={toggleMenu}
+              className="hover:text-pink-300"
+            >
+              Sobre nosotros
+            </a>
+          </li>
+          <li>
+            <a
+              href="#services"
+              onClick={toggleMenu}
+              className="hover:text-pink-300"
+            >
+              Servicios
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              onClick={toggleMenu}
+              className="hover:text-pink-300"
+            >
+              Contacto
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }

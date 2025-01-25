@@ -5,15 +5,15 @@ import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[300px] h-[calc(100vh-520px)] lg:h-[calc(100vh-170px)] 2xl:h-[calc(100vh-350px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-pink-400 to-pink-900">
+    <section className="relative w-full min-h-[300px] h-[calc(100vh-400px)] lg:h-[calc(100vh-170px)] 2xl:h-[calc(100vh-350px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-pink-400 to-pink-900">
       {/* Animación 3D de Spline */}
       <Spline
         scene="/scene.splinecode"
-        className="absolute top-0 left-0 w-full h-[calc(100vh+520px)] lg:h-[calc(100vh+170px)] 2xl:h-[calc(100vh+350px)] opacity-60" // Expande la animación para compensar el recorte
+        className="absolute top-0 left-0 w-full h-[calc(100vh+4000px)] lg:h-[calc(100vh+170px)] 2xl:h-[calc(100vh+350px)] opacity-60" // Expande la animación para compensar el recorte
       />
 
       {/* Contenido superpuesto */}
-      <div className="absolute container mx-auto px-4 inset-0 flex flex-col items-center justify-center z-10 text-center">
+      <div className="absolute container mx-auto px-4 pt-20 inset-0 flex flex-col items-center justify-center z-10 text-center">
         <h1 className="text-4xl lg:text-6xl text-white drop-shadow-lg">
           <span className="font-light">Rethinking</span> <br />
           <span className="font-semibold">banking as a service</span>
