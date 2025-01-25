@@ -26,7 +26,7 @@ export default function Hero() {
           className="mt-6 px-6 py-3 w-[200px] bg-black text-white font-semibold rounded-lg shadow-md hover:bg-white hover:text-black transition font-serif"
           onClick={() => alert('Pronto estaremos disponibles!')}
         >
-          Empezar
+          Empecemos
         </button>
       </div>
 

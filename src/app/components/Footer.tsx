@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Logo y Dirección */}
         <div className="flex flex-col items-center md:items-start">
           <img src="/boxie-logo-white.png" alt="Logo" className="w-32 mb-4" />
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-400 font-serif text-center md:text-left">
             Las Urbinas 53, of 141,
             <br />
             Providencia, Santiago, Chile
@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="mt-8 text-center text-sm text-gray-400">
+      <div className="mt-8 text-center text-sm text-gray-400 font-serif">
         &copy; {new Date().getFullYear()} boxie.ai. Todos los derechos
         reservados.
       </div>

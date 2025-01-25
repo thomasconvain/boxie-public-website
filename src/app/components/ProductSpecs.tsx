@@ -36,8 +36,8 @@ export default function ProductSpecifications() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const totalDuration = 5000; // Tiempo total (3 segundos)
-    const updateInterval = 10; // Intervalo de actualización (50ms)
+    const totalDuration = 5000; // Tiempo total (5 segundos)
+    const updateInterval = 10; // Intervalo de actualización (10ms)
     const step = 100 / (totalDuration / updateInterval); // Incremento por intervalo
 
     let currentProgress = 0;
@@ -57,7 +57,7 @@ export default function ProductSpecifications() {
   }, []);
 
   return (
-    <section className="font-serif">
+    <section className="font-serif pb-12">
       {/* General Text */}
       <div className="text-center -mt-5 py-20 mb-8 rounded-b-3xl bg-gradient-to-b from-slate-900 to-black">
         <div className="container mx-auto px-4 py-8">
