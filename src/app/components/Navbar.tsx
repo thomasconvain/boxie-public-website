@@ -81,7 +81,7 @@ export default function Navbar() {
 
         {/* Botón de menú móvil */}
         <button
-          className={`md:hidden block text-gray-600 focus:outline-none z-50 ${
+          className={`md:hidden block focus:outline-none z-50 ${
             isScrolled && !isMenuOpen ? 'text-gray-700' : 'text-gray-200'
           }`}
           onClick={toggleMenu}
