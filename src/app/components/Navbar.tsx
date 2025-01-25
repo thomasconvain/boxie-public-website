@@ -32,7 +32,7 @@ export default function Navbar() {
         isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
           <a href="/">
