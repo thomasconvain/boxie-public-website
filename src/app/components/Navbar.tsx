@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">
+        <div className="text-2xl font-bold text-pink-700">
           <a href="/">
             {' '}
             <Image src="/boxie-logo.png" alt="Boxie" width={130} height={50} />
@@ -24,17 +24,17 @@ export default function Navbar() {
         {/* Menú en pantallas grandes */}
         <ul className="hidden md:flex space-x-6 text-gray-600">
           <li>
-            <a href="#about" className="hover:text-blue-600">
+            <a href="#about" className="hover:text-pink-700">
               Sobre nosotros
             </a>
           </li>
           <li>
-            <a href="#services" className="hover:text-blue-600">
+            <a href="#services" className="hover:text-pink-700">
               Servicios
             </a>
           </li>
           <li>
-            <a href="#contact" className="hover:text-blue-600">
+            <a href="#contact" className="hover:text-pink-700">
               Contacto
             </a>
           </li>
@@ -67,17 +67,17 @@ export default function Navbar() {
         <div className="md:hidden bg-white shadow-md">
           <ul className="space-y-4 text-gray-600 px-4 py-4">
             <li>
-              <a href="#about" className="block hover:text-blue-600">
+              <a href="#about" className="block hover:text-pink-700">
                 Sobre nosotros
               </a>
             </li>
             <li>
-              <a href="#services" className="block hover:text-blue-600">
+              <a href="#services" className="block hover:text-pink-700">
                 Servicios
               </a>
             </li>
             <li>
-              <a href="#contact" className="block hover:text-blue-600">
+              <a href="#contact" className="block hover:text-pink-700">
                 Contacto
               </a>
             </li>

@@ -10,6 +10,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['MuseoModerno', 'sans-serif'], // Define "MuseoModerno" como fuente predeterminada
+        serif: ['inter', 'serif'], // Define "Inter" como fuente secundaria
       },
       colors: {
         background: 'var(--background)',
