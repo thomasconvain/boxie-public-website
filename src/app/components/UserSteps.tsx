@@ -37,7 +37,7 @@ export default function UserSteps() {
 
   useEffect(() => {
     const totalDuration = 5000; // Tiempo total (5 segundos)
-    const updateInterval = 100; // Intervalo de actualización (100ms)
+    const updateInterval = 10; // Intervalo de actualización (10ms)
     const step = 100 / (totalDuration / updateInterval); // Incremento por intervalo
 
     let currentProgress = 0;
