@@ -5,11 +5,11 @@ import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-[calc(100vh-400px)] lg:h-[calc(100vh-200px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-transparent to-black">
+    <section className="relative w-full h-[calc(100vh-400px)] lg:h-[calc(100vh-200px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-pink-400 to-pink-900">
       {/* Animación 3D de Spline */}
       <Spline
         scene="/scene.splinecode" // Reemplaza con la ruta a tu archivo spline
-        className="absolute top-0 left-0 w-full h-[calc(100vh-400px)] lg:h-[calc(100vh+200px)] opacity-80" // Expande la animación para compensar el recorte
+        className="absolute top-0 left-0 w-full h-[calc(100vh-400px)] lg:h-[calc(100vh+200px)] opacity-60" // Expande la animación para compensar el recorte
       />
 
       {/* Contenido superpuesto */}

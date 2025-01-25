@@ -18,7 +18,9 @@ export default function ProductSpecifications() {
     <section className="container mx-auto px-4 py-8 font-serif">
       {/* General Text */}
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-800 font-sans">Producto</h2>
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 font-sans">
+          Producto
+        </h2>
         <p className="mt-4 text-gray-600">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -34,7 +36,7 @@ export default function ProductSpecifications() {
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`text-lg pb-2 ${
+              className={`text-md pb-2 ${
                 activeTab === index
                   ? 'text-black border-b-2 border-pink-600'
                   : 'text-gray-500 hover:text-black'
@@ -49,7 +51,7 @@ export default function ProductSpecifications() {
         <div className="mt-8 flex flex-col md:flex-row items-start space-y-8 md:space-y-0 md:space-x-8">
           {/* Left Section: Text */}
           <div className="flex-1">
-            <h3 className="text-2xl font-semibold text-gray-800">
+            <h3 className="text-xl font-semibold text-gray-800">
               {tabs[activeTab].name}
             </h3>
             <p className="mt-4 text-gray-600">{tabs[activeTab].content}</p>
