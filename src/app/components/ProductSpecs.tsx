@@ -1,25 +1,31 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const tabs = [
   {
     name: 'Configura los parámetros',
     shortName: 'Configura',
     image: 'step1.webp',
+    content: `Configura los parámetros globales  para gestionar las interacciones entre proyectos de manera coherente y personaliza opciones propias de cada proyecto.`,
+  },
+  {
+    name: 'Atiende a tus clientes',
+    shortName: 'Atiende',
+    image: 'step2.webp',
     content: `El ejecutivo inmobiliario ingresa detalles clave en el chat de WhatsApp, como tipo de propiedad, monto del pie inicial, y plazo de financiamiento deseado. Esto inicia el análisis personalizado.`,
   },
   {
     name: 'Recibe opciones en tiempo real',
     shortName: 'Recibe opciones',
-    image: 'step2.webp',
+    image: 'step3.webp',
     content:
       'La herramienta analiza las políticas comerciales y genera opciones de financiamiento claras, detallando descuentos, tasas, incentivos y cuotas mensuales en segundos.',
   },
   {
     name: 'Comparte y gestiona propuestas',
     shortName: 'Comparte',
-    image: 'step3.webp',
+    image: 'step4.webp',
     content:
       'El ejecutivo puede enviar las opciones al cliente directamente desde el chat, realizar ajustes según las necesidades y llevar un seguimiento de las interacciones en un historial organizado.',
   },
@@ -27,6 +33,28 @@ const tabs = [
 
 export default function ProductSpecifications() {
   const [activeTab, setActiveTab] = useState(0);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const totalDuration = 5000; // Tiempo total (3 segundos)
+    const updateInterval = 10; // Intervalo de actualización (50ms)
+    const step = 100 / (totalDuration / updateInterval); // Incremento por intervalo
+
+    let currentProgress = 0;
+
+    const interval = setInterval(() => {
+      currentProgress += step;
+
+      if (currentProgress >= 100) {
+        currentProgress = 0;
+        setActiveTab((prevTab) => (prevTab + 1) % tabs.length); // Avanza al siguiente tab
+      }
+
+      setProgress(currentProgress); // Actualiza el progreso visual
+    }, updateInterval);
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar
+  }, []);
 
   return (
     <section className="font-serif">
@@ -52,16 +80,27 @@ export default function ProductSpecifications() {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                onClick={() => setActiveTab(index)}
+                onClick={() => {
+                  setActiveTab(index);
+                  setProgress(0); // Reinicia la barra de progreso
+                }}
                 className={`text-md pb-2 ${
                   activeTab === index
-                    ? 'text-black border-b-2 border-pink-600'
+                    ? 'text-black font-semibold'
                     : 'text-gray-500 hover:text-black'
                 }`}
               >
                 {tab.shortName}
               </button>
             ))}
+          </div>
+
+          {/* Barra de progreso */}
+          <div className="relative h-1 bg-gray-200 rounded-full -mt-1 overflow-hidden">
+            <div
+              className="absolute top-0 left-0 h-1 bg-pink-600 rounded-full transition-all duration-[50ms]"
+              style={{ width: `${progress}%` }}
+            ></div>
           </div>
 
           {/* Tab Content */}
