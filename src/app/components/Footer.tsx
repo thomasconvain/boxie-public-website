@@ -5,11 +5,15 @@ import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-black text-white py-8" id="contact">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         {/* Logo y Dirección */}
         <div className="flex flex-col items-center md:items-start">
-          <img src="/boxie-logo-white.png" alt="Logo" className="w-32 mb-4" />
+          <img
+            src="/boxie-logo-white-text-only.png"
+            alt="Logo"
+            className="w-24 mb-4"
+          />
           <p className="text-sm text-gray-400 font-serif text-center md:text-left">
             Las Urbinas 53, of 141,
             <br />

@@ -23,7 +23,10 @@ const features = [
 
 export default function Example() {
   return (
-    <div className="relative bg-gradient-to-b from-pink-50 to-transparent">
+    <div
+      className="relative bg-gradient-to-b from-pink-50 to-transparent"
+      id="features"
+    >
       <div
         style={{
           backgroundImage: "url('/nnnoise.svg')", // Cambia esto por la ruta de tu textura

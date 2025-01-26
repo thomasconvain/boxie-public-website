@@ -1,11 +1,16 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Image from 'next/image';
 
 export default function PoliticasDePrivacidad() {
   return (
     <>
-      <Navbar />
       <div className="container mx-auto px-4 py-16 text-black font-serif">
+        <div className="text-2xl font-bold pb-16">
+          <a href="/">
+            <Image src="/boxie-logo.png" alt="Boxie" width={130} height={50} />
+          </a>
+        </div>
         <h1 className="text-3xl font-bold mb-8 font-sans">
           Políticas de Privacidad
         </h1>

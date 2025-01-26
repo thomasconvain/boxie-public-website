@@ -49,22 +49,22 @@ export default function Navbar() {
         <ul className="hidden md:flex space-x-6 text-gray-600">
           <li>
             <a
-              href="#about"
+              href="#product"
               className={`hover:text-gray-800 ${
                 isScrolled ? 'text-gray-700' : 'text-gray-200'
               }`}
             >
-              Sobre nosotros
+              Producto
             </a>
           </li>
           <li>
             <a
-              href="#services"
+              href="#features"
               className={`hover:text-gray-800 ${
                 isScrolled ? 'text-gray-700' : 'text-gray-200'
               }`}
             >
-              Servicios
+              Funcionalidades
             </a>
           </li>
           <li>
@@ -112,20 +112,20 @@ export default function Navbar() {
         <ul className="space-y-8 text-center text-xl">
           <li>
             <a
-              href="#about"
+              href="#product"
               onClick={toggleMenu}
               className="hover:text-pink-300"
             >
-              Sobre nosotros
+              Producto
             </a>
           </li>
           <li>
             <a
-              href="#services"
+              href="#features"
               onClick={toggleMenu}
               className="hover:text-pink-300"
             >
-              Servicios
+              Funcionalidades
             </a>
           </li>
           <li>

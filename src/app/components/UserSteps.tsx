@@ -33,31 +33,17 @@ const tabs = [
 
 export default function UserSteps() {
   const [activeTab, setActiveTab] = useState(0);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const totalDuration = 5000; // Tiempo total (5 segundos)
-    const updateInterval = 10; // Intervalo de actualización (10ms)
-    const step = 100 / (totalDuration / updateInterval); // Incremento por intervalo
-
-    let currentProgress = 0;
-
     const interval = setInterval(() => {
-      currentProgress += step;
-
-      if (currentProgress >= 100) {
-        currentProgress = 0;
-        setActiveTab((prevTab) => (prevTab + 1) % tabs.length); // Avanza al siguiente tab
-      }
-
-      setProgress(currentProgress); // Actualiza el progreso visual
-    }, updateInterval);
+      setActiveTab((prevTab) => (prevTab + 1) % tabs.length);
+    }, 5000); // Cambia de tab cada 5 segundos
 
     return () => clearInterval(interval); // Limpia el intervalo al desmontar
   }, []);
 
   return (
-    <section className="font-serif">
+    <section className="font-serif" id="product">
       {/* General Text */}
       <div className="text-center -mt-5 py-20 mb-8 rounded-b-3xl bg-gradient-to-b from-slate-900 to-black shadow-lg">
         <div className="container mx-auto px-4 py-8">
@@ -80,10 +66,7 @@ export default function UserSteps() {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  setActiveTab(index);
-                  setProgress(0); // Reinicia la barra de progreso
-                }}
+                onClick={() => setActiveTab(index)}
                 className={`text-md pb-2 ${
                   activeTab === index
                     ? 'text-black font-semibold'
@@ -95,11 +78,14 @@ export default function UserSteps() {
             ))}
           </div>
 
-          {/* Barra de progreso */}
+          {/* Barra de progreso animada con CSS */}
           <div className="relative h-1 bg-gray-200 rounded-full -mt-1 overflow-hidden">
             <div
-              className="absolute top-0 left-0 h-1 bg-pink-600 rounded-full transition-all duration-[50ms]"
-              style={{ width: `${progress}%` }}
+              className="absolute top-0 left-0 h-1 bg-pink-600 rounded-full"
+              style={{
+                animation: `progressAnimation 5s linear infinite`,
+                transformOrigin: 'left',
+              }}
             ></div>
           </div>
 
@@ -127,6 +113,18 @@ export default function UserSteps() {
           </div>
         </div>
       </div>
+
+      {/* Estilo para la animación de la barra de progreso */}
+      <style jsx>{`
+        @keyframes progressAnimation {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 }

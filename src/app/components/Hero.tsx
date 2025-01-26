@@ -5,7 +5,7 @@ import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[300px] h-[calc(100vh-400px)] lg:h-[calc(100vh-170px)] 2xl:h-[calc(100vh-350px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-pink-400 to-pink-900">
+    <section className="relative w-full min-h-[450px] h-[calc(100vh-400px)] lg:h-[calc(100vh-170px)] 2xl:h-[calc(100vh-350px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-pink-400 to-pink-900">
       {/* Animación 3D de Spline */}
       <Spline
         scene="/scene.splinecode"
