@@ -1,6 +1,7 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -16,7 +17,7 @@ const eslintConfig = [
     'plugin:prettier/recommended'
   ),
   {
-    files: ['**/*.{js,jsx,ts,tsx}'], // Aplica reglas a estos archivos
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       parserOptions: {
         ecmaVersion: 2021,
@@ -24,7 +25,7 @@ const eslintConfig = [
       },
     },
     plugins: {
-      prettier: require('eslint-plugin-prettier'), // Importa el plugin directamente
+      prettier: prettierPlugin,
     },
     rules: {
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
