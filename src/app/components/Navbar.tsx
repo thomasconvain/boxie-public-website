@@ -35,7 +35,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-4 sm:py-6 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold relative w-24 sm:w-32 h-6 sm:h-10">
+        <div className="text-2xl font-bold relative w-28 sm:w-32 h-8 sm:h-10">
           <Link href="/">
             <Image
               src={isScrolled ? '/boxie-logo.png' : '/boxie-logo-white.png'}
