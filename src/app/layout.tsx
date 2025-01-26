@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Boxie',
+  title: 'Boxie - Rethinking bank as service',
   description: 'Rethinking bank as service',
 };
 
