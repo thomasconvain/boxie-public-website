@@ -1,31 +1,32 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const tabs = [
   {
     name: 'Configura los parámetros',
     shortName: 'Configura',
-    image: 'step1.webp',
+    image: '/step1.webp',
     content: `Configura los parámetros globales  para gestionar las interacciones entre proyectos de manera coherente y personaliza opciones propias de cada proyecto.`,
   },
   {
     name: 'Atiende a tus clientes',
     shortName: 'Atiende',
-    image: 'step2.webp',
+    image: '/step2.webp',
     content: `El ejecutivo inmobiliario ingresa detalles clave en el chat de WhatsApp, como tipo de propiedad, monto del pie inicial, y plazo de financiamiento deseado. Esto inicia el análisis personalizado.`,
   },
   {
     name: 'Recibe opciones en tiempo real',
     shortName: 'Revisa',
-    image: 'step3.webp',
+    image: '/step3.webp',
     content:
       'La herramienta analiza las políticas comerciales y genera opciones de financiamiento claras, detallando descuentos, tasas, incentivos y cuotas mensuales en segundos.',
   },
   {
     name: 'Comparte y gestiona propuestas',
     shortName: 'Comparte',
-    image: 'step4.webp',
+    image: '/step4.webp',
     content:
       'El ejecutivo puede enviar las opciones al cliente directamente desde el chat, realizar ajustes según las necesidades y llevar un seguimiento de las interacciones en un historial organizado.',
   },
@@ -104,10 +105,12 @@ export default function UserSteps() {
 
             {/* Right Section: Image */}
             <div className="flex-1">
-              <img
+              <Image
                 src={tabs[activeTab].image}
                 alt={tabs[activeTab].name}
-                className="w-[300px] rounded-2xl shadow-md mx-auto"
+                width={300}
+                height={300}
+                className="rounded-2xl shadow-md mx-auto"
               />
             </div>
           </div>

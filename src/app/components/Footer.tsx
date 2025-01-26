@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
@@ -9,10 +10,12 @@ export default function Footer() {
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         {/* Logo y Dirección */}
         <div className="flex flex-col items-center md:items-start">
-          <img
+          <Image
             src="/boxie-logo-white-text-only.png"
             alt="Logo"
-            className="w-24 mb-4"
+            width={100}
+            height={50}
+            className="mb-4"
           />
           <p className="text-sm text-gray-400 font-serif text-center md:text-left">
             Las Urbinas 53, of 141,

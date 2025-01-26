@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,14 +36,14 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <a href="/">
+          <Link href="/">
             <Image
               src={isScrolled ? '/boxie-logo.png' : '/boxie-logo-white.png'}
               alt="Boxie"
               width={130}
               height={50}
             />
-          </a>
+          </Link>
         </div>
 
         {/* Menú en pantallas grandes */}
@@ -50,8 +51,8 @@ export default function Navbar() {
           <li>
             <a
               href="#product"
-              className={`hover:text-gray-800 ${
-                isScrolled ? 'text-gray-700' : 'text-gray-200'
+              className={`hover:text-pink-800 ${
+                isScrolled ? 'text-gray-700' : 'text-white'
               }`}
             >
               Producto
@@ -60,8 +61,8 @@ export default function Navbar() {
           <li>
             <a
               href="#features"
-              className={`hover:text-gray-800 ${
-                isScrolled ? 'text-gray-700' : 'text-gray-200'
+              className={`hover:text-pink-800 ${
+                isScrolled ? 'text-gray-700' : 'text-white'
               }`}
             >
               Funcionalidades
@@ -70,8 +71,8 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              className={`hover:text-gray-800 ${
-                isScrolled ? 'text-gray-700' : 'text-gray-200'
+              className={`hover:text-pink-800 ${
+                isScrolled ? 'text-gray-700' : 'text-white'
               }`}
             >
               Contacto
