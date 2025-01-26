@@ -35,13 +35,13 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold">
+        <div className="text-2xl font-bold relative w-24 sm:w-32 h-6 sm:h-10">
           <Link href="/">
             <Image
               src={isScrolled ? '/boxie-logo.png' : '/boxie-logo-white.png'}
               alt="Boxie"
-              width={130}
-              height={50}
+              fill
+              className="object-contain"
             />
           </Link>
         </div>

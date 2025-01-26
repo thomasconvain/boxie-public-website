@@ -1,16 +1,43 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
+  const [isVisible, setIsVisible] = useState(true);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting); // Cambia el estado según la visibilidad (sirve para mejorar rendimiento de la pagina ya que la animación spline ralentiza el sitio aun cuando no esta en pantalla)
+      },
+      { threshold: 0.1 } // El 10% del elemento debe estar visible para considerarlo
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative w-full min-h-[450px] h-[calc(100vh-400px)] lg:h-[calc(100vh-170px)] 2xl:h-[calc(100vh-350px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-pink-400 to-pink-900">
+    <section
+      ref={heroRef}
+      className="relative w-full min-h-[450px] h-[calc(100vh-400px)] lg:h-[calc(100vh-170px)] 2xl:h-[calc(100vh-350px)] overflow-hidden rounded-b-3xl bg-gradient-to-l from-pink-400 to-pink-900"
+    >
       {/* Animación 3D de Spline */}
-      <Spline
-        scene="/scene.splinecode"
-        className="absolute top-0 left-0 w-full h-[calc(100vh+4000px)] lg:h-[calc(100vh+170px)] 2xl:h-[calc(100vh+350px)] opacity-60" // Expande la animación para compensar el recorte
-      />
+      {isVisible && (
+        <Spline
+          scene="/scene.splinecode"
+          className="absolute top-0 left-0 w-full h-[calc(100vh+4000px)] lg:h-[calc(100vh+170px)] 2xl:h-[calc(100vh+350px)] opacity-60"
+        />
+      )}
 
       {/* Contenido superpuesto */}
       <div className="absolute container mx-auto px-4 pt-20 inset-0 flex flex-col items-center justify-center z-10 text-center">

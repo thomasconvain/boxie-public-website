@@ -16,7 +16,7 @@ export default function CallToAction() {
         </p>
         <button
           onClick={() => alert('Pronto estaremos disponibles!')}
-          className="bg-white text-black px-6 py-3 rounded-lg font-semibold font-serif text-lg shadow-md hover:bg-black hover:text-white transition"
+          className="w-[200px] transition bg-white text-black px-6 py-3 rounded-lg font-semibold font-serif text-lg shadow-md hover:bg-black hover:text-white"
         >
           Empecemos
         </button>
